@@ -7,5 +7,5 @@ This repository is used for source code to deploy a small [Puppeteer](https://pp
 
 `/controllers/scrapeController.js` contains the Puppeteer initialization. The **custom-image** example varies slightly account for the path of the Chromium installation when using the Alpine Docker Image it's built with.
 
-Steps on how to deploy either of this to Azure App Service on Linux can be found [here]().
+Steps on how to deploy either of this to Azure App Service on Linux can be found [here](https://azureossd.github.io/2023/05/05/Running-Puppeteer-on-Azure-App-Service-Linux/index.html).
 
