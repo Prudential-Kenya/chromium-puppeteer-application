@@ -23,18 +23,21 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          cd /blessed-image
           npm install
           npm run build --if-present
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: |
+          cd /blessed-image
+          zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: release.zip
+          path: /blessed-image/release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -58,5 +61,5 @@ jobs:
         with:
           app-name: 'puppeteer-test'
           slot-name: 'Production'
-          package: .
+          package: ./blessed-image
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EB4AC9FFE404458C95D3721FFD9AD0DD }}
